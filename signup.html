@@ -136,15 +136,15 @@
     }
     .otp-container {
       display: flex;
-      gap: 0.5rem;
+      gap: 0.4rem;
       margin: 1rem 0;
       justify-content: center;
     }
     .otp-input {
-      width: 45px;
+      width: 40px;
       height: 50px;
       text-align: center;
-      font-size: 24px;
+      font-size: 20px;
       font-weight: bold;
       border: 2px solid #d1d5db;
       border-radius: 0.5rem;
@@ -209,7 +209,7 @@
     <div id="verify-section">
       <div class="verify-info">
         <h3 style="margin-bottom: 0.5rem;">Enter Verification Code</h3>
-        <p class="muted">We sent a 6-digit code to <span class="verify-email" id="verify-email"></span></p>
+        <p class="muted">We sent an 8-digit code to <span class="verify-email" id="verify-email"></span></p>
       </div>
       
       <div class="otp-container">
@@ -219,6 +219,8 @@
         <input type="text" maxlength="1" class="otp-input" id="otp4" />
         <input type="text" maxlength="1" class="otp-input" id="otp5" />
         <input type="text" maxlength="1" class="otp-input" id="otp6" />
+        <input type="text" maxlength="1" class="otp-input" id="otp7" />
+        <input type="text" maxlength="1" class="otp-input" id="otp8" />
       </div>
 
       <div style="text-align: center;">
@@ -304,24 +306,26 @@
     let selectedDevice = null;
     let currentEmail = "";
 
-    // OTP Inputs
+    // OTP Inputs - 8 digits
     const otpInputs = [
       document.getElementById("otp1"),
       document.getElementById("otp2"),
       document.getElementById("otp3"),
       document.getElementById("otp4"),
       document.getElementById("otp5"),
-      document.getElementById("otp6")
+      document.getElementById("otp6"),
+      document.getElementById("otp7"),
+      document.getElementById("otp8")
     ];
 
     // OTP Input handling
     otpInputs.forEach((input, index) => {
       input.addEventListener("input", (e) => {
-        if (e.target.value.length === 1 && index < 5) {
+        if (e.target.value.length === 1 && index < 7) {
           otpInputs[index + 1].focus();
         }
-        // Auto-verify on 6th digit
-        if (index === 5 && e.target.value.length === 1) {
+        // Auto-verify on 8th digit
+        if (index === 7 && e.target.value.length === 1) {
           setTimeout(() => verifyCode(), 100);
         }
       });
@@ -339,13 +343,13 @@
       });
     });
 
-    // Paste support
+    // Paste support - 8 digits
     document.addEventListener("paste", (e) => {
       if (verifySection.style.display === "block") {
         const paste = e.clipboardData.getData("text");
-        if (/^\d{6}$/.test(paste)) {
+        if (/^\d{8}$/.test(paste)) {
           e.preventDefault();
-          for (let i = 0; i < 6; i++) {
+          for (let i = 0; i < 8; i++) {
             otpInputs[i].value = paste[i];
           }
           setTimeout(() => verifyCode(), 100);
@@ -462,8 +466,8 @@
 
     async function verifyCode() {
       const code = getOTPCode();
-      if (code.length !== 6) {
-        setVerifyStatus("Please enter all 6 digits", true);
+      if (code.length !== 8) {
+        setVerifyStatus("Please enter all 8 digits", true);
         return;
       }
 
