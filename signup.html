@@ -9,38 +9,42 @@
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       margin: 0;
       padding: 1.5rem;
-      background: #0f172a;
-      color: #e5e7eb;
+      background: #f3f4f6;
+      color: #1f2937;
     }
     h1, h2 {
       margin-top: 0;
+      color: #111827;
     }
     .card {
-      background: #020617;
+      background: #ffffff;
       border-radius: 0.75rem;
       padding: 1rem 1.25rem;
       margin-bottom: 1rem;
-      border: 1px solid #1f2937;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
     label {
       display: block;
       font-size: 0.85rem;
       margin-bottom: 0.25rem;
-      color: #9ca3af;
+      color: #6b7280;
+      font-weight: 600;
     }
     input {
       width: 100%;
       padding: 0.4rem 0.5rem;
       border-radius: 0.4rem;
-      border: 1px solid #374151;
-      background: #020617;
-      color: #e5e7eb;
+      border: 1px solid #d1d5db;
+      background: #ffffff;
+      color: #111827;
       margin-bottom: 0.5rem;
+      font-size: 0.9rem;
     }
     input:focus {
       outline: none;
-      border-color: #38bdf8;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
     }
     button {
       border: none;
@@ -49,16 +53,28 @@
       margin-right: 0.5rem;
       cursor: pointer;
       font-size: 0.9rem;
-      background: #22c55e;
-      color: #020617;
+      background: #3b82f6;
+      color: #ffffff;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    button:hover {
+      background: #2563eb;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
     button.secondary {
-      background: #1f2937;
-      color: #e5e7eb;
+      background: #f3f4f6;
+      color: #4b5563;
+      border: 1px solid #d1d5db;
+    }
+    button.secondary:hover {
+      background: #e5e7eb;
     }
     button:disabled {
       opacity: 0.5;
       cursor: default;
+      transform: none;
     }
     .row {
       display: flex;
@@ -78,10 +94,11 @@
       padding: 0.15rem 0.5rem;
       border-radius: 999px;
       font-size: 0.7rem;
-      background: #111827;
-      border: 1px solid #1f2937;
-      color: #9ca3af;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1e40af;
       margin-left: 0.3rem;
+      font-weight: 600;
     }
     ul {
       list-style: none;
@@ -91,8 +108,13 @@
       margin-bottom: 0.5rem;
       padding: 0.5rem 0.6rem;
       border-radius: 0.5rem;
-      background: #020617;
-      border: 1px solid #111827;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      transition: all 0.2s;
+    }
+    li:hover {
+      background: #f3f4f6;
+      border-color: #d1d5db;
     }
     #status {
       min-height: 1.2em;
@@ -101,9 +123,11 @@
     }
     code {
       font-size: 0.8rem;
-      background: #0b1120;
+      background: #f3f4f6;
       padding: 0.15rem 0.35rem;
       border-radius: 0.25rem;
+      color: #1f2937;
+      border: 1px solid #e5e7eb;
     }
     
     /* OTP Verification Styles */
@@ -122,15 +146,17 @@
       text-align: center;
       font-size: 24px;
       font-weight: bold;
-      border: 2px solid #374151;
-      border-radius: 0.4rem;
-      background: #020617;
-      color: #e5e7eb;
+      border: 2px solid #d1d5db;
+      border-radius: 0.5rem;
+      background: #ffffff;
+      color: #111827;
       padding: 0;
       margin-bottom: 0;
+      transition: all 0.2s;
     }
     .otp-input:focus {
-      border-color: #38bdf8;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
       outline: none;
     }
     .verify-info {
@@ -138,8 +164,12 @@
       margin-bottom: 1rem;
     }
     .verify-email {
-      color: #38bdf8;
+      color: #3b82f6;
       font-weight: 600;
+    }
+    h3 {
+      color: #111827;
+      margin-top: 0;
     }
   </style>
 </head>
@@ -334,12 +364,12 @@
 
     function setStatus(msg, isError = false) {
       statusEl.textContent = msg || "";
-      statusEl.style.color = isError ? "#f97373" : "#9ca3af";
+      statusEl.style.color = isError ? "#dc2626" : "#6b7280";
     }
 
     function setVerifyStatus(msg, isError = false) {
       verifyStatusEl.textContent = msg || "";
-      verifyStatusEl.style.color = isError ? "#f97373" : "#22c55e";
+      verifyStatusEl.style.color = isError ? "#dc2626" : "#16a34a";
     }
 
     function setLoading(isLoading) {
@@ -580,7 +610,7 @@
         deviceListEl.appendChild(li);
       });
 
-      deviceCountEl.textCount = data.length;
+      deviceCountEl.textContent = data.length;
       setStatus("");
     }
 
