@@ -12,10 +12,7 @@
       background: #f3f4f6;
       color: #1f2937;
     }
-    h1, h2 {
-      margin-top: 0;
-      color: #111827;
-    }
+    h1, h2 { margin-top: 0; color: #111827; }
     .card {
       background: #ffffff;
       border-radius: 0.75rem;
@@ -44,7 +41,7 @@
     input:focus {
       outline: none;
       border-color: #3b82f6;
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
     }
     button {
       border: none;
@@ -68,42 +65,12 @@
       color: #4b5563;
       border: 1px solid #d1d5db;
     }
-    button.secondary:hover {
-      background: #e5e7eb;
-    }
-    button:disabled {
-      opacity: 0.5;
-      cursor: default;
-      transform: none;
-    }
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .col {
-      flex: 1;
-      min-width: 260px;
-    }
-    .muted {
-      color: #6b7280;
-      font-size: 0.8rem;
-    }
-    .badge {
-      display: inline-block;
-      padding: 0.15rem 0.5rem;
-      border-radius: 999px;
-      font-size: 0.7rem;
-      background: #eff6ff;
-      border: 1px solid #bfdbfe;
-      color: #1e40af;
-      margin-left: 0.3rem;
-      font-weight: 600;
-    }
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
+    button.secondary:hover { background: #e5e7eb; }
+    button:disabled { opacity: 0.5; cursor: default; transform: none; }
+    .row { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .col { flex: 1; min-width: 260px; }
+    .muted { color: #6b7280; font-size: 0.8rem; }
+    ul { list-style: none; padding-left: 0; }
     li {
       margin-bottom: 0.5rem;
       padding: 0.5rem 0.6rem;
@@ -112,15 +79,8 @@
       border: 1px solid #e5e7eb;
       transition: all 0.2s;
     }
-    li:hover {
-      background: #f3f4f6;
-      border-color: #d1d5db;
-    }
-    #status {
-      min-height: 1.2em;
-      font-size: 0.8rem;
-      margin-top: 0.25rem;
-    }
+    li:hover { background: #f3f4f6; border-color: #d1d5db; }
+    #status { min-height: 1.2em; font-size: 0.8rem; margin-top: 0.25rem; }
     code {
       font-size: 0.8rem;
       background: #f3f4f6;
@@ -129,11 +89,7 @@
       color: #1f2937;
       border: 1px solid #e5e7eb;
     }
-    
-    /* OTP Verification Styles */
-    #verify-section {
-      display: none;
-    }
+    #verify-section { display: none; }
     .otp-container {
       display: flex;
       gap: 0.4rem;
@@ -141,8 +97,7 @@
       justify-content: center;
     }
     .otp-input {
-      width: 40px;
-      height: 50px;
+      width: 40px; height: 50px;
       text-align: center;
       font-size: 20px;
       font-weight: bold;
@@ -156,46 +111,31 @@
     }
     .otp-input:focus {
       border-color: #3b82f6;
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
       outline: none;
     }
-    .verify-info {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-    .verify-email {
-      color: #3b82f6;
-      font-weight: 600;
-    }
-    h3 {
-      color: #111827;
-      margin-top: 0;
-    }
+    .verify-info { text-align: center; margin-bottom: 1rem; }
+    .verify-email { color: #3b82f6; font-weight: 600; }
+    h3 { color: #111827; margin-top: 0; }
   </style>
 </head>
 <body>
   <h1>AirFlowIQ – FiltSure Login Demo</h1>
-  <p class="muted">
-    Simple test UI: sign up / log in, then see only <strong>your</strong> devices.
-  </p>
+  <p class="muted">Simple test UI: sign up / log in, then see only <strong>your</strong> devices.</p>
 
   <div class="card" id="auth-card">
     <h2>Auth</h2>
-    
-    <!-- Login/Signup Section -->
+
     <div id="login-section">
       <div class="row">
         <div class="col">
           <label for="email">Email</label>
           <input id="email" type="email" placeholder="you@example.com" />
-
           <label for="password">Password</label>
           <input id="password" type="password" placeholder="••••••••" />
-
           <button id="btn-signup">Sign Up</button>
           <button id="btn-login" class="secondary">Log In</button>
           <button id="btn-logout" class="secondary" style="display:none;">Log Out</button>
-
           <div id="status" class="muted"></div>
         </div>
         <div class="col">
@@ -205,13 +145,11 @@
       </div>
     </div>
 
-    <!-- Email Verification Section -->
     <div id="verify-section">
       <div class="verify-info">
-        <h3 style="margin-bottom: 0.5rem;">Enter Verification Code</h3>
+        <h3 style="margin-bottom:0.5rem;">Enter Verification Code</h3>
         <p class="muted">We sent an 8-digit code to <span class="verify-email" id="verify-email"></span></p>
       </div>
-      
       <div class="otp-container">
         <input type="text" maxlength="1" class="otp-input" id="otp1" />
         <input type="text" maxlength="1" class="otp-input" id="otp2" />
@@ -222,36 +160,12 @@
         <input type="text" maxlength="1" class="otp-input" id="otp7" />
         <input type="text" maxlength="1" class="otp-input" id="otp8" />
       </div>
-
-      <div style="text-align: center;">
+      <div style="text-align:center;">
         <button id="btn-verify-code">Verify Code</button>
         <button id="btn-resend-code" class="secondary">Resend Code</button>
         <button id="btn-back-to-login" class="secondary">Back to Login</button>
       </div>
-
-      <div id="verify-status" class="muted" style="text-align: center; margin-top: 0.5rem;"></div>
-    </div>
-  </div>
-
-  <div class="card" id="devices-card" style="display:none;">
-    <h2>My Devices <span class="badge" id="device-count">0</span></h2>
-
-    <div class="row">
-      <div class="col">
-        <h3 style="margin-top:0;">Add Device</h3>
-        <label for="device-name">Device name</label>
-        <input id="device-name" placeholder="Upstairs unit" />
-
-        <label for="device-location">Location</label>
-        <input id="device-location" placeholder="Hallway" />
-
-        <button id="btn-add-device">Add Device</button>
-      </div>
-
-      <div class="col">
-        <h3 style="margin-top:0;">Devices</h3>
-        <ul id="device-list"></ul>
-      </div>
+      <div id="verify-status" class="muted" style="text-align:center;margin-top:0.5rem;"></div>
     </div>
   </div>
 
@@ -268,7 +182,7 @@
       </div>
     </div>
   </div>
-  
+
   <script type="module">
     import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
@@ -277,114 +191,68 @@
 
     const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    // DOM elements
-    const emailEl = document.getElementById("email");
-    const passwordEl = document.getElementById("password");
-    const statusEl = document.getElementById("status");
+    const emailEl        = document.getElementById("email");
+    const passwordEl     = document.getElementById("password");
+    const statusEl       = document.getElementById("status");
     const verifyStatusEl = document.getElementById("verify-status");
-    const currentUserEl = document.getElementById("current-user");
-    const btnSignup = document.getElementById("btn-signup");
-    const btnLogin = document.getElementById("btn-login");
-    const btnLogout = document.getElementById("btn-logout");
-    const loginSection = document.getElementById("login-section");
-    const verifySection = document.getElementById("verify-section");
-    const verifyEmailEl = document.getElementById("verify-email");
-    const btnVerifyCode = document.getElementById("btn-verify-code");
-    const btnResendCode = document.getElementById("btn-resend-code");
+    const currentUserEl  = document.getElementById("current-user");
+    const btnSignup      = document.getElementById("btn-signup");
+    const btnLogin       = document.getElementById("btn-login");
+    const btnLogout      = document.getElementById("btn-logout");
+    const loginSection   = document.getElementById("login-section");
+    const verifySection  = document.getElementById("verify-section");
+    const verifyEmailEl  = document.getElementById("verify-email");
+    const btnVerifyCode  = document.getElementById("btn-verify-code");
+    const btnResendCode  = document.getElementById("btn-resend-code");
     const btnBackToLogin = document.getElementById("btn-back-to-login");
-    const devicesCard = document.getElementById("devices-card");
-    const deviceListEl = document.getElementById("device-list");
-    const deviceCountEl = document.getElementById("device-count");
-    const deviceNameEl = document.getElementById("device-name");
-    const deviceLocationEl = document.getElementById("device-location");
-    const btnAddDevice = document.getElementById("btn-add-device");
-    const logsCard = document.getElementById("logs-card");
+    const logsCard       = document.getElementById("logs-card");
     const logsDeviceLabel = document.getElementById("logs-device-label");
-    const logListEl = document.getElementById("log-list");
-    const btnAddFakeLog = document.getElementById("btn-add-fake-log");
+    const logListEl      = document.getElementById("log-list");
+    const btnAddFakeLog  = document.getElementById("btn-add-fake-log");
 
     let selectedDevice = null;
     let currentEmail = "";
 
-    // OTP Inputs - 8 digits
-    const otpInputs = [
-      document.getElementById("otp1"),
-      document.getElementById("otp2"),
-      document.getElementById("otp3"),
-      document.getElementById("otp4"),
-      document.getElementById("otp5"),
-      document.getElementById("otp6"),
-      document.getElementById("otp7"),
-      document.getElementById("otp8")
-    ];
+    const otpInputs = [1,2,3,4,5,6,7,8].map(n => document.getElementById("otp" + n));
 
-    // OTP Input handling
     otpInputs.forEach((input, index) => {
       input.addEventListener("input", (e) => {
-        if (e.target.value.length === 1 && index < 7) {
-          otpInputs[index + 1].focus();
-        }
-        // Auto-verify on 8th digit
-        if (index === 7 && e.target.value.length === 1) {
-          setTimeout(() => verifyCode(), 100);
-        }
+        if (e.target.value.length === 1 && index < 7) otpInputs[index + 1].focus();
+        if (index === 7 && e.target.value.length === 1) setTimeout(() => verifyCode(), 100);
       });
-
       input.addEventListener("keydown", (e) => {
-        if (e.key === "Backspace" && e.target.value.length === 0 && index > 0) {
-          otpInputs[index - 1].focus();
-        }
+        if (e.key === "Backspace" && e.target.value.length === 0 && index > 0) otpInputs[index - 1].focus();
       });
-
       input.addEventListener("keypress", (e) => {
-        if (!/[0-9]/.test(e.key)) {
-          e.preventDefault();
-        }
+        if (!/[0-9]/.test(e.key)) e.preventDefault();
       });
     });
 
-    // Paste support - 8 digits
     document.addEventListener("paste", (e) => {
       if (verifySection.style.display === "block") {
         const paste = e.clipboardData.getData("text");
         if (/^\d{8}$/.test(paste)) {
           e.preventDefault();
-          for (let i = 0; i < 8; i++) {
-            otpInputs[i].value = paste[i];
-          }
+          otpInputs.forEach((inp, i) => inp.value = paste[i]);
           setTimeout(() => verifyCode(), 100);
         }
       }
     });
 
-    function getOTPCode() {
-      return otpInputs.map(input => input.value).join("");
-    }
-
-    function clearOTPInputs() {
-      otpInputs.forEach(input => input.value = "");
-      otpInputs[0].focus();
-    }
+    const getOTPCode    = () => otpInputs.map(i => i.value).join("");
+    const clearOTPInputs = () => { otpInputs.forEach(i => i.value = ""); otpInputs[0].focus(); };
 
     function setStatus(msg, isError = false) {
       statusEl.textContent = msg || "";
       statusEl.style.color = isError ? "#dc2626" : "#6b7280";
     }
-
     function setVerifyStatus(msg, isError = false) {
       verifyStatusEl.textContent = msg || "";
       verifyStatusEl.style.color = isError ? "#dc2626" : "#16a34a";
     }
-
     function setLoading(isLoading) {
-      btnSignup.disabled = isLoading;
-      btnLogin.disabled = isLoading;
-      btnLogout.disabled = isLoading;
-      btnAddDevice.disabled = isLoading;
-      btnVerifyCode.disabled = isLoading;
-      btnResendCode.disabled = isLoading;
+      [btnSignup, btnLogin, btnLogout, btnVerifyCode, btnResendCode].forEach(b => b.disabled = isLoading);
     }
-
     function showVerifySection(email) {
       currentEmail = email;
       verifyEmailEl.textContent = email;
@@ -393,7 +261,6 @@
       clearOTPInputs();
       setStatus("");
     }
-
     function showLoginSection() {
       loginSection.style.display = "block";
       verifySection.style.display = "none";
@@ -406,19 +273,14 @@
       const session = data.session;
       if (!session) {
         currentUserEl.textContent = "Not logged in";
-        devicesCard.style.display = "none";
         logsCard.style.display = "none";
         btnLogout.style.display = "none";
         return;
       }
-
       const user = session.user;
       currentUserEl.textContent = `${user.email} (${user.id})`;
       btnLogout.style.display = "inline-block";
-      devicesCard.style.display = "block";
       showLoginSection();
-
-      await loadDevices();
     }
 
     async function signUp() {
@@ -427,103 +289,52 @@
       try {
         const email = emailEl.value.trim();
         const password = passwordEl.value;
-
-        if (!email || !password) {
-          setStatus("Please enter email and password", true);
-          setLoading(false);
-          return;
-        }
-
-        if (password.length < 6) {
-          setStatus("Password must be at least 6 characters", true);
-          setLoading(false);
-          return;
-        }
-
-        const { data, error } = await supabase.auth.signUp({
-          email,
-          password,
-          options: {
-            data: { full_name: email.split("@")[0] || "" },
-          },
+        if (!email || !password) { setStatus("Please enter email and password", true); return; }
+        if (password.length < 6) { setStatus("Password must be at least 6 characters", true); return; }
+        const { error } = await supabase.auth.signUp({
+          email, password,
+          options: { data: { full_name: email.split("@")[0] || "" } }
         });
-
         if (error) throw error;
-
         setStatus("Code sent! Check your email.");
         showVerifySection(email);
       } catch (err) {
-        console.error(err);
-        if (err.message.includes("already registered")) {
-          setStatus("Email already registered. Try logging in or resend verification code.", true);
-        } else {
-          setStatus(err.message || "Sign-up failed", true);
-        }
-      } finally {
-        setLoading(false);
-      }
+        setStatus(err.message.includes("already registered")
+          ? "Email already registered. Try logging in."
+          : (err.message || "Sign-up failed"), true);
+      } finally { setLoading(false); }
     }
 
     async function verifyCode() {
       const code = getOTPCode();
-      if (code.length !== 8) {
-        setVerifyStatus("Please enter all 8 digits", true);
-        return;
-      }
-
+      if (code.length !== 8) { setVerifyStatus("Please enter all 8 digits", true); return; }
       setLoading(true);
       setVerifyStatus("Verifying...");
-
       try {
-        const { data, error } = await supabase.auth.verifyOtp({
-          email: currentEmail,
-          token: code,
-          type: 'signup'
-        });
-
+        const { error } = await supabase.auth.verifyOtp({ email: currentEmail, token: code, type: "signup" });
         if (error) throw error;
-
         setVerifyStatus("✓ Verified! Logging you in...", false);
-        
-        setTimeout(async () => {
-          await refreshSessionAndUI();
-        }, 1000);
-
+        setTimeout(() => refreshSessionAndUI(), 1000);
       } catch (err) {
-        console.error(err);
-        if (err.message.includes("expired")) {
-          setVerifyStatus("Code expired. Click 'Resend Code'.", true);
-        } else if (err.message.includes("invalid")) {
-          setVerifyStatus("Invalid code. Try again.", true);
-        } else {
-          setVerifyStatus(err.message || "Verification failed", true);
-        }
+        setVerifyStatus(
+          err.message.includes("expired") ? "Code expired. Click 'Resend Code'." :
+          err.message.includes("invalid") ? "Invalid code. Try again." :
+          (err.message || "Verification failed"), true);
         clearOTPInputs();
-      } finally {
-        setLoading(false);
-      }
+      } finally { setLoading(false); }
     }
 
     async function resendCode() {
       setLoading(true);
       setVerifyStatus("Sending new code...");
-
       try {
-        const { error } = await supabase.auth.resend({
-          type: 'signup',
-          email: currentEmail
-        });
-
+        const { error } = await supabase.auth.resend({ type: "signup", email: currentEmail });
         if (error) throw error;
-
         setVerifyStatus("✓ New code sent! Check your email.", false);
         clearOTPInputs();
       } catch (err) {
-        console.error(err);
         setVerifyStatus(err.message || "Failed to resend", true);
-      } finally {
-        setLoading(false);
-      }
+      } finally { setLoading(false); }
     }
 
     async function logIn() {
@@ -532,37 +343,21 @@
       try {
         const email = emailEl.value.trim();
         const password = passwordEl.value;
-
-        if (!email || !password) {
-          setStatus("Please enter email and password", true);
-          setLoading(false);
-          return;
-        }
-
-        const { data, error } = await supabase.auth.signInWithPassword({
-          email,
-          password,
-        });
-        
+        if (!email || !password) { setStatus("Please enter email and password", true); return; }
+        const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
-        
         setStatus("Logged in!");
         await refreshSessionAndUI();
       } catch (err) {
-        console.error(err);
         if (err.message.includes("Email not confirmed")) {
           setStatus("Email not verified. Sending new code...", true);
           currentEmail = emailEl.value.trim();
           showVerifySection(currentEmail);
           resendCode();
-        } else if (err.message.includes("Invalid login")) {
-          setStatus("Invalid email or password", true);
         } else {
-          setStatus(err.message || "Login failed", true);
+          setStatus(err.message.includes("Invalid login") ? "Invalid email or password" : (err.message || "Login failed"), true);
         }
-      } finally {
-        setLoading(false);
-      }
+      } finally { setLoading(false); }
     }
 
     async function logOut() {
@@ -574,65 +369,18 @@
         setStatus("Logged out.");
         await refreshSessionAndUI();
       } catch (err) {
-        console.error(err);
         setStatus(err.message || "Logout failed", true);
-      } finally {
-        setLoading(false);
-      }
-    }
-    
-    async function loadDevices() {
-      setStatus("Loading devices...");
-      const { data, error } = await supabase
-        .from("devices")
-        .select("*")
-        .order("created_at", { ascending: false });
-
-      if (error) {
-        console.error(error);
-        setStatus(error.message || "Failed to load devices", true);
-        return;
-      }
-
-      deviceListEl.innerHTML = "";
-      data.forEach((dev) => {
-        const li = document.createElement("li");
-        li.style.cursor = "pointer";
-        li.innerHTML = `
-          <div><strong>${dev.name}</strong></div>
-          <div class="muted">${dev.hvac_location || "No location"} • created ${new Date(
-          dev.created_at
-        ).toLocaleString()}</div>
-          <div class="muted"><code>${dev.id}</code></div>
-        `;
-        li.addEventListener("click", () => {
-          selectedDevice = dev;
-          logsDeviceLabel.textContent = `Logs for: ${dev.name} (${dev.id})`;
-          logsCard.style.display = "block";
-          loadLogs(dev.id);
-        });
-        deviceListEl.appendChild(li);
-      });
-
-      deviceCountEl.textContent = data.length;
-      setStatus("");
+      } finally { setLoading(false); }
     }
 
     async function loadLogs(deviceId) {
-      setStatus("Loading logs...");
       const { data, error } = await supabase
         .from("sensor_logs")
         .select("*")
         .eq("device_id", deviceId)
         .order("recorded_at", { ascending: false })
         .limit(50);
-
-      if (error) {
-        console.error(error);
-        setStatus(error.message || "Failed to load logs", true);
-        return;
-      }
-
+      if (error) { console.error(error); return; }
       logListEl.innerHTML = "";
       if (data.length === 0) {
         const li = document.createElement("li");
@@ -642,113 +390,44 @@
         data.forEach((log) => {
           const li = document.createElement("li");
           li.innerHTML = `
-            <div><strong>${log.filter_status || "unknown"}</strong> • ${new Date(
-            log.recorded_at
-          ).toLocaleString()}</div>
-            <div class="muted">
-              T=${log.temp_c ?? "–"} °C, H=${log.humidity ?? "–"} %, P=${log.pressure_pa ?? "–"} Pa
-            </div>
+            <div><strong>${log.filter_status || "unknown"}</strong> • ${new Date(log.recorded_at).toLocaleString()}</div>
+            <div class="muted">T=${log.temp_c ?? "–"} °C, H=${log.humidity ?? "–"} %, P=${log.pressure_pa ?? "–"} Pa</div>
           `;
           logListEl.appendChild(li);
         });
       }
-
-      setStatus("");
-    }
-
-    async function addDevice() {
-      setLoading(true);
-      setStatus("Adding device...");
-      try {
-        const name = deviceNameEl.value.trim();
-        const hvac_location = deviceLocationEl.value.trim();
-
-        if (!name) {
-          setStatus("Device name is required", true);
-          setLoading(false);
-          return;
-        }
-
-        const { data: authData } = await supabase.auth.getUser();
-        const user = authData.user;
-        if (!user) {
-          setStatus("Not logged in", true);
-          setLoading(false);
-          return;
-        }
-
-        const { error } = await supabase.from("devices").insert({
-          owner_id: user.id,
-          name,
-          hvac_location,
-        });
-
-        if (error) throw error;
-
-        deviceNameEl.value = "";
-        deviceLocationEl.value = "";
-        setStatus("Device added.");
-        await loadDevices();
-      } catch (err) {
-        console.error(err);
-        setStatus(err.message || "Failed to add device", true);
-      } finally {
-        setLoading(false);
-      }
     }
 
     async function addFakeLog() {
-      if (!selectedDevice) {
-        setStatus("Select a device first (click one in the list).", true);
-        return;
-      }
-
+      if (!selectedDevice) { setStatus("No device selected.", true); return; }
       setLoading(true);
       setStatus("Adding test log...");
-
       try {
-        const temp_c = 20 + Math.random() * 5;
-        const humidity = 40 + Math.random() * 20;
-        const pressure_pa = 100000 + Math.random() * 500;
         const statuses = ["ok", "replace_soon", "replace_now"];
-        const filter_status = statuses[Math.floor(Math.random() * statuses.length)];
-
         const { error } = await supabase.from("sensor_logs").insert({
           device_id: selectedDevice.id,
-          temp_c,
-          humidity,
-          pressure_pa,
-          filter_status,
+          temp_c: 20 + Math.random() * 5,
+          humidity: 40 + Math.random() * 20,
+          pressure_pa: 100000 + Math.random() * 500,
+          filter_status: statuses[Math.floor(Math.random() * statuses.length)],
         });
-
         if (error) throw error;
-
         setStatus("Test log added.");
         await loadLogs(selectedDevice.id);
       } catch (err) {
-        console.error(err);
         setStatus(err.message || "Failed to add log", true);
-      } finally {
-        setLoading(false);
-      }
+      } finally { setLoading(false); }
     }
 
-    // Event listeners
     btnSignup.addEventListener("click", signUp);
     btnLogin.addEventListener("click", logIn);
     btnLogout.addEventListener("click", logOut);
     btnVerifyCode.addEventListener("click", verifyCode);
     btnResendCode.addEventListener("click", resendCode);
     btnBackToLogin.addEventListener("click", showLoginSection);
-    btnAddDevice.addEventListener("click", addDevice);
     btnAddFakeLog.addEventListener("click", addFakeLog);
 
-    // React to auth changes
-    supabase.auth.onAuthStateChange((_event, _session) => {
-      refreshSessionAndUI();
-    });
-
-    // Initial load
+    supabase.auth.onAuthStateChange(() => refreshSessionAndUI());
     refreshSessionAndUI();
   </script>
 </body>
